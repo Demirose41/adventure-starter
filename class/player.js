@@ -32,14 +32,15 @@ class Player {
     }
 
     takeItem(itemName) {
-
-        // Fill this in
+       this.items.push(this.currentRoom.getItemByName(itemName));
 
     }
 
     dropItem(itemName) {
-
-        // Fill this in
+        const droppedItem = this.items.find((item) => item.name == itemName);
+        const droppedItemIndex = this.items.indexOf(droppedItem);
+        this.items.splice(droppedItemIndex, 1);
+        this.currentRoom.items.push(droppedItem);
     }
 
     eatItem(itemName) {
@@ -48,8 +49,7 @@ class Player {
     }
 
     getItemByName(name) {
-
-        // Fill this in
+        return this.items.find((item) => item.name == name);
     }
 }
 

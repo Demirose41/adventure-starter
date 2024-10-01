@@ -44,8 +44,10 @@ class Room {
     }
 
     getItemByName(name) {
-
-        // Fill this in
+        const foundItem = this.items.find((item) => item.name == name);
+        const foundItemIndex = this.items.indexOf(foundItem);
+        this.items.splice(foundItemIndex, 1);
+        return foundItem;
     }
 
 }
